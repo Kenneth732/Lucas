@@ -1,3 +1,5 @@
+
+
 import React from 'react'
 import HeroPage from './HeroPage'
 import News from '../components/News'
@@ -20,3 +22,6 @@ const HomePage = () => {
 }
 
 export default HomePage
+
+
+
