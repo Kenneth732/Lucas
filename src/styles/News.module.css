@@ -1,0 +1,487 @@
+
+
+/* Holographic News Display Styles */
+.newsContainer {
+  position: relative;
+  padding: 10rem 2rem;
+  /* background: radial-gradient(ellipse at center, rgba(10, 5, 30, 0.8) 0%, #050210 100%); */
+    background: radial-gradient(ellipse at center, #050210 0%, #0a0720 100%);
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.holographicBase {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to top, rgba(0, 180, 255, 0.1), transparent);
+  filter: blur(20px);
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(0, 180, 255, 0.6);
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.newsGrid {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 3;
+}
+
+.newsItem {
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  /* background: rgba(15, 10, 40, 0.6); */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 180, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 180, 255, 0.1);
+}
+
+.newsItem:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 40px rgba(0, 180, 255, 0.3);
+  border-color: rgba(0, 180, 255, 0.4);
+}
+
+.newsItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 180, 255, 0.05), transparent);
+  z-index: -1;
+}
+
+.featuredItem {
+  grid-row: span 2;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 600px;
+}
+
+.cardItem {
+  padding: 2rem;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dataItem {
+  grid-column: span 1;
+  padding: 2rem;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.energyIndicator {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 100px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.energyLevel {
+  height: 100%;
+  background: linear-gradient(90deg, #00b4ff, #00ff88);
+  border-radius: 2px;
+}
+
+.energyPulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #00b4ff;
+  opacity: 0.1;
+  border-radius: 2px;
+}
+
+.featuredTitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: white;
+}
+
+.titleAccent {
+  color: #00ff88;
+}
+
+.holographicDivider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0, 180, 255, 0.5), transparent);
+  margin: 2rem 0;
+}
+
+.featuredDescription {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+}
+
+.authorProfile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.avatarHalo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(0, 180, 255, 0.4), transparent 70%);
+  padding: 4px;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 180, 255, 0.3);
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.authorRole {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1rem;
+}
+
+.noveltyMeter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.meterBar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.meterFill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff00aa, #ff5500);
+  border-radius: 2px;
+}
+
+.dateBadge {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(0, 180, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.dateGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 180, 255, 0.2);
+  filter: blur(5px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dateBadge:hover .dateGlow {
+  opacity: 1;
+}
+
+/* Data card styles */
+.dataVisualization {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dataHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.dataIcon {
+  font-size: 1.5rem;
+}
+
+.dataDate {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dataTitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dataDescription {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+}
+
+.quantumGraph {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 1.5rem 0;
+}
+
+.quantumLine {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0, 180, 255, 0.3), transparent);
+  position: relative;
+}
+
+.quantumDot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #00ff88;
+  border-radius: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: quantumPulse 2s infinite;
+  filter: drop-shadow(0 0 5px #00ff88);
+}
+
+@keyframes quantumPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.5; }
+}
+
+.entanglementIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.entanglementBar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.entanglementFill {
+  height: 100%;
+  background: linear-gradient(90deg, #aa00ff, #5500ff);
+  border-radius: 2px;
+}
+
+/* Card styles */
+.cardContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.cardIcon {
+  font-size: 1.5rem;
+}
+
+.cardDate {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cardTitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cardDescription {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+}
+
+.cardStats {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.statBar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.statFill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffaa00, #ff5500);
+  border-radius: 2px;
+}
+
+.cardGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(0, 180, 255, 0.1), transparent 70%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cardItem:hover .cardGlow {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .newsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .featuredItem {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsContainer {
+    padding: 6rem 1.5rem;
+  }
+  
+  .newsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .featuredItem {
+    grid-column: span 1;
+    min-height: 500px;
+  }
+  
+  .featuredTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .featuredItem {
+    padding: 2rem;
+  }
+  
+  .featuredTitle {
+    font-size: 1.75rem;
+  }
+  
+  .featuredDescription {
+    font-size: 1rem;
+  }
+  
+  .cardItem, .dataItem {
+    min-height: 240px;
+    padding: 1.5rem;
+  }
+}
+

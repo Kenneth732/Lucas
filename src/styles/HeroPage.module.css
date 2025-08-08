@@ -1,0 +1,519 @@
+/* Main Hero Container */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem;
+  overflow: hidden;
+  background-color: #0a0a12;
+  color: #e0e0e0;
+  font-family: 'Rajdhani', 'Courier New', monospace;
+  isolation: isolate;
+}
+
+/* Advanced Particle Network Background */
+.particleNetwork {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+/* Holographic Grid Effect */
+.holographicGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(10, 180, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 180, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 2;
+  animation: gridPulse 8s infinite alternate;
+}
+
+@keyframes gridPulse {
+  0% {
+    opacity: 0.2;
+    background-size: 50px 50px;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.2;
+    background-size: 55px 55px;
+  }
+}
+
+.holographicGrid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, 
+    transparent 0%, 
+    rgba(10, 180, 255, 0.05) 70%, 
+    transparent 100%);
+  animation: hologramScan 12s linear infinite;
+}
+
+@keyframes hologramScan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Scanlines Effect */
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 95%,
+    rgba(10, 180, 255, 0.1) 96%,
+    transparent 97%
+  );
+  background-size: 100% 5px;
+  animation: scanline 8s linear infinite;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+/* Cyber orbs with enhanced glow */
+.cyberOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 2;
+  opacity: 0.8;
+  mix-blend-mode: screen;
+}
+
+.orb1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(10, 180, 255, 0.3) 0%, transparent 70%);
+  top: -150px;
+  right: -150px;
+  animation: orbFloat 8s ease-in-out infinite alternate;
+}
+
+.orb2 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 20, 150, 0.3) 0%, transparent 70%);
+  bottom: 100px;
+  left: -100px;
+  animation: orbFloat 6s ease-in-out infinite alternate-reverse;
+}
+
+.orb3 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(150, 255, 50, 0.3) 0%, transparent 70%);
+  top: 40%;
+  right: 20%;
+  animation: orbFloat 10s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, 30px) scale(1.1); }
+  100% { transform: translate(-10px, -20px) scale(0.95); }
+}
+
+/* Main Content Container */
+.heroContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Text Content Styles */
+.heroContent {
+  position: relative;
+}
+
+.heroTitle {
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(10, 180, 255, 0.3);
+}
+
+.heroTitle span {
+  display: block;
+  position: relative;
+  background: linear-gradient(90deg, #0ab4ff, #ff1496);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroTitle span:nth-child(2) {
+  /* background: linear-gradient(90deg, #ff1496, #96ff32); */
+  margin-left: 1.5rem;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 500px;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.subtitleHighlight {
+  color: #96ff32;
+  font-weight: 600;
+}
+
+.heroSubtitle::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #0ab4ff, transparent);
+}
+
+/* Button Styles */
+.heroButtons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.heroButton {
+  padding: 1.25rem 2rem;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
+  background: rgba(20, 20, 30, 0.7);
+  backdrop-filter: blur(5px);
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(10, 180, 255, 0.2);
+  cursor: pointer;
+}
+
+.primaryButton {
+  background: linear-gradient(90deg, #0ab4ff, #0066ff);
+  color: #000;
+  font-weight: 700;
+}
+
+.primaryButton:hover {
+  box-shadow: 0 0 20px rgba(10, 180, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.secondaryButton:hover {
+  border-color: #ff1496;
+  box-shadow: 0 0 20px rgba(255, 20, 150, 0.3);
+  transform: translateY(-2px);
+}
+
+.buttonPulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0; transform: scale(1); }
+  50% { opacity: 0.3; }
+  100% { opacity: 0; transform: scale(1.1); }
+}
+
+.buttonGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 20, 150, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.secondaryButton:hover .buttonGlow {
+  opacity: 1;
+}
+
+/* Image Section */
+.heroVisual {
+  position: relative;
+  height: 100%;
+}
+
+.cyberImage {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: 0 0 50px rgba(10, 180, 255, 0.3);
+}
+
+.cyberImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.imageGlitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  opacity: 0;
+  mix-blend-mode: screen;
+  animation: glitch 5s infinite alternate;
+}
+
+@keyframes glitch {
+  0%, 100% { opacity: 0; transform: translate(0); }
+  25% { opacity: 0.3; transform: translate(-5px, 5px); }
+  50% { opacity: 0.1; transform: translate(5px, -5px); }
+  75% { opacity: 0.2; transform: translate(-5px, 0); }
+}
+
+/* Data Card */
+.dataCard {
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 300px;
+  background: rgba(10, 15, 25, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(10, 180, 255, 0.3);
+  border-radius: 5px;
+  padding: 1.5rem;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: cardHover 5s ease-in-out infinite;
+}
+
+@keyframes cardHover {
+  0%, 100% { transform: translateY(0) rotateZ(0.5deg); }
+  50% { transform: translateY(-10px) rotateZ(-0.5deg); }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  color: #0ab4ff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+}
+
+.cardPing {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #0ab4ff;
+  box-shadow: 0 0 10px #0ab4ff;
+  animation: ping 1.5s infinite;
+}
+
+@keyframes ping {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dataRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dataRow span {
+  font-size: 0.75rem;
+  color: #96ff32;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dataBar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff1496, #0ab4ff);
+  border-radius: 3px;
+  transition: width 1.5s ease;
+}
+
+.cardFooter {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(10, 180, 255, 0.2);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Scroll cue */
+.scrollCue {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 10;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, #0ab4ff, transparent);
+}
+
+.scrollCue span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #0ab4ff;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .heroTitle {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .heroContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  
+  .heroVisual {
+    order: -1;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .dataCard {
+    right: 0;
+    bottom: -80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+  
+  .heroButtons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .heroButton {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .dataCard {
+    width: 250px;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: 0 1.5rem;
+  }
+  
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .heroSubtitle {
+    padding-left: 1rem;
+  }
+  
+  .dataCard {
+    width: 100%;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: 2rem;
+  }
+}

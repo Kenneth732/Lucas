@@ -1,0 +1,244 @@
+/* Quantum Testimonials Styles */
+.quantumTestimonials {
+  position: relative;
+  padding: 8rem 2rem;
+  background: radial-gradient(ellipse at center, #050210 0%, #0a0720 100%);
+  overflow: hidden;
+  color: #e0e0e0;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Quantum particles */
+.quantumParticle {
+  position: absolute;
+  background: #00f0ff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(1px);
+  animation: particleGlow 2s infinite alternate;
+}
+
+@keyframes particleGlow {
+  0% { opacity: 0.1; }
+  100% { opacity: 0.3; }
+}
+
+.testimonialNetwork {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.networkHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.headerDivider {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #00f0ff, transparent);
+}
+
+.networkTag {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #00f0ff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.networkTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+}
+
+.networkTitle span {
+  display: block;
+}
+
+.titleHighlight {
+  background: linear-gradient(90deg, #00f0ff, #ff00f0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.testimonialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.testimonialCard {
+  background: rgba(15, 10, 40, 0.6);
+  border-radius: 4px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.testimonialCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+  border-color: rgba(0, 240, 255, 0.4);
+}
+
+.quantumConnection {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #00f0ff, transparent);
+  transform-origin: left center;
+  z-index: -1;
+}
+
+.cardHologram {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto 1.5rem;
+  overflow: hidden;
+}
+
+.holoGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+  background-size: 10px 10px;
+  opacity: 0.5;
+}
+
+.profileImage {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%) contrast(120%);
+}
+
+.energyLevel {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  background: linear-gradient(90deg, #ff00f0, #00f0ff);
+  border-radius: 2px;
+}
+
+.cardContent {
+  text-align: center;
+}
+
+.clientName {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #00f0ff;
+}
+
+.clientTitle {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+.connectionStrength {
+  margin: 1.5rem 0;
+}
+
+.connectionStrength span {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.connectionBar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.connectionFill {
+  height: 100%;
+  background: linear-gradient(90deg, #96ff32, #00f0ff);
+  border-radius: 2px;
+}
+
+.clientFeedback {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+}
+
+.quantumSignature {
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(0, 240, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .networkTitle {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .quantumTestimonials {
+    padding: 6rem 1.5rem;
+  }
+  
+  .networkTitle {
+    font-size: 2rem;
+  }
+  
+  .testimonialGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .networkTitle {
+    font-size: 1.75rem;
+  }
+  
+  .clientName {
+    font-size: 1.25rem;
+  }
+  
+  .clientFeedback {
+    font-size: 0.875rem;
+  }
+}

@@ -1,0 +1,400 @@
+
+
+/* Quantum Holographic Navigation Styles */
+:root {
+  --quantum-primary: #00f0ff;
+  --quantum-secondary: #ff00f0;
+  --quantum-bg: rgba(10, 5, 30, 0.95);
+  --quantum-text: #e0e0e0;
+  --quantum-accent: #96ff32;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  padding: 1.5rem 2rem;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  font-family: 'Rajdhani', sans-serif;
+  overflow: hidden;
+}
+
+.header.scrolled {
+  padding: 1rem 2rem;
+  backdrop-filter: blur(10px);
+  background: rgba(10, 5, 30, 0.9);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+.navbarContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Quantum particles */
+.quantumParticle {
+  position: absolute;
+  background: var(--quantum-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(1px);
+  animation: particleGlow 2s infinite alternate;
+}
+
+@keyframes particleGlow {
+  0% { opacity: 0.1; }
+  100% { opacity: 0.3; }
+}
+
+/* Logo styles */
+.navLogo {
+  z-index: 1002;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+}
+
+.logoMain {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--quantum-text);
+  letter-spacing: -0.5px;
+}
+
+.logoDot {
+  color: var(--quantum-primary);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.logoPulse {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(0, 240, 255, 0.1);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  animation: logoPulse 4s infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.3; }
+}
+
+/* Menu toggle */
+.menuToggle {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1002;
+  position: relative;
+}
+
+.menuLine {
+  width: 24px;
+  height: 2px;
+  background: var(--quantum-text);
+  margin: 4px 0;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+}
+
+.menuHalo {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+}
+
+.menuToggle:hover .menuHalo {
+  opacity: 1;
+}
+
+.menuToggle.open .menuLine:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+  background: var(--quantum-primary);
+}
+
+.menuToggle.open .menuLine:nth-child(2) {
+  opacity: 0;
+}
+
+.menuToggle.open .menuLine:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+  background: var(--quantum-primary);
+}
+
+.menuToggle.open .menuHalo {
+  opacity: 0;
+}
+
+/* Navigation content */
+.navContent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 1001;
+}
+
+.navContent.open {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.navBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--quantum-bg);
+  clip-path: circle(0% at 90% 40px);
+  z-index: 1;
+}
+
+/* Navigation links */
+.navLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.navLink {
+  margin: 1.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.navLink a {
+  color: var(--quantum-text);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+}
+
+.linkText {
+  position: relative;
+  display: block;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.linkHover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, var(--quantum-primary), var(--quantum-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: translateY(100%);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.linkParticle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--quantum-accent);
+  border-radius: 50%;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  opacity: 0;
+  filter: drop-shadow(0 0 5px var(--quantum-accent));
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.linkTrail {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--quantum-primary), var(--quantum-secondary));
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navLink:hover .linkHover {
+  transform: translateY(0);
+}
+
+.navLink:hover .linkTrail {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.navLink.active .linkText {
+  color: var(--quantum-primary);
+}
+
+.navLink.active .linkTrail {
+  transform: scaleX(1);
+  background: var(--quantum-primary);
+}
+
+/* Quantum button */
+.navButton {
+  position: relative;
+  z-index: 2;
+}
+
+.quantumButton {
+  padding: 1rem 2rem;
+  border-radius: 2px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(0, 240, 255, 0.1);
+  color: var(--quantum-text);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  text-transform: uppercase;
+}
+
+.buttonOrb {
+  width: 8px;
+  height: 8px;
+  background: var(--quantum-primary);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 5px var(--quantum-primary));
+  margin-left: 0.5rem;
+}
+
+.buttonPulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 240, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.quantumButton:hover {
+  background: rgba(0, 240, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 240, 255, 0.2);
+}
+
+.quantumButton:hover .buttonPulse {
+  opacity: 1;
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+  .header {
+    padding: 2rem 3rem;
+  }
+  
+  .header.scrolled {
+    padding: 1.5rem 3rem;
+  }
+  
+  .navContent {
+    position: static;
+    flex-direction: row;
+    opacity: 1;
+    pointer-events: all;
+    background: transparent;
+    clip-path: none;
+  }
+  
+  .navBackground {
+    display: none;
+  }
+  
+  .navLinks {
+    display: flex;
+    margin: 0 auto;
+  }
+  
+  .navLink {
+    margin: 0 1.5rem;
+  }
+  
+  .navLink a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+  
+  .navButton {
+    margin-left: 2rem;
+  }
+  
+  .menuToggle {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navLink a {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: 1rem;
+  }
+  
+  .navLink a {
+    font-size: 1.25rem;
+  }
+  
+  .quantumButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}

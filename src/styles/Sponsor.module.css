@@ -1,0 +1,249 @@
+
+
+/* Quantum Sponsors Network Styles */
+.quantumSponsors {
+  position: relative;
+  padding: 8rem 2rem;
+  background: radial-gradient(ellipse at center, #050210 0%, #0a0720 100%);
+  overflow: hidden;
+  color: #e0e0e0;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Quantum particles */
+.quantumParticle {
+  position: absolute;
+  background: #00f0ff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(1px);
+  animation: particleGlow 2s infinite alternate;
+}
+
+@keyframes particleGlow {
+  0% { opacity: 0.1; }
+  100% { opacity: 0.3; }
+}
+
+.sponsorNetwork {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.networkHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.headerDivider {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #00f0ff, transparent);
+}
+
+.networkTag {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #00f0ff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.networkTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+  text-align: center;
+  background: linear-gradient(90deg, #00f0ff, #ff00f0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sponsorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 4rem;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.quantumConnection {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #00f0ff, transparent);
+  transform-origin: left center;
+  z-index: -1;
+}
+
+.sponsorOrb {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--tier-color);
+  box-shadow: 0 0 20px var(--tier-color);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.sponsorOrb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px var(--tier-color);
+}
+
+.orbHalo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--tier-color), transparent 70%);
+  opacity: 0.1;
+  animation: orbPulse 4s infinite;
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); opacity: 0.1; }
+  50% { transform: scale(1.1); opacity: 0.3; }
+}
+
+.orbCore {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background: rgba(15, 10, 40, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  z-index: 2;
+}
+
+.sponsorName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--tier-color);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.sponsorTier {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.orbParticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.orbParticle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--tier-color);
+  filter: blur(1px);
+  animation: orbParticleMove 10s infinite linear;
+}
+
+@keyframes orbParticleMove {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(10px, 10px); }
+  50% { transform: translate(0, 20px); }
+  75% { transform: translate(-10px, 10px); }
+  100% { transform: translate(0, 0); }
+}
+
+.quantumSignature {
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(0, 240, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .networkTitle {
+    font-size: 2.5rem;
+  }
+  
+  .sponsorOrb {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 992px) {
+  .sponsorGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .quantumSponsors {
+    padding: 6rem 1.5rem;
+  }
+  
+  .networkTitle {
+    font-size: 2rem;
+  }
+  
+  .sponsorGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .sponsorOrb {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .sponsorName {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .networkTitle {
+    font-size: 1.5rem;
+  }
+  
+  .sponsorGrid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin: 0 auto 4rem;
+  }
+  
+  .sponsorOrb {
+    width: 180px;
+    height: 180px;
+  }
+}
